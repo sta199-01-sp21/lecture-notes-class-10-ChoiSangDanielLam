@@ -84,11 +84,14 @@ Suppose we draw a single marble from our imaginary box, where all the marbles
 are equally likely to be selected. What is the probability the marble is blue? 
 How about white?
 
+Probability for blue is 3/8, white is 1/8
+
 We can simulate this "drawing" with the `sample()` function.
 
 ```{r sample}
 sample(marbles, size = 1)
 ```
+Use sample to run a simulation. Each time you do a sample it will be different. 
 
 We produced one random outcome from this experiment. To estimate the probability 
 of say getting a white marble, we need to repeat this experiment many many
@@ -102,13 +105,16 @@ experiment.
 ```{r simulate_draws}
 draw_results <- sample(marbles, size = 10000, replace = TRUE)
 ```
-
+simulate it
 ```{r summarize_draws}
 counts <- table(draw_results)
 prop.table(counts)
 ```
+see the proportions.
 
 How close is this value to the "true" probability?
+Pretty close to true probability, just off by a couple of decimals. 
+Law of large numbers: more and more, closer to the actual probability
 
 **To summarize our process:**
 
