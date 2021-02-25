@@ -131,6 +131,7 @@ color if we make two draws with replacement? We haven't discussed how to
 compute this theoretically yet, but this is what computers are good at.
 
 Before we do this, what is your guess as to what the probability will be?
+Not very likely, but also depends on the color of the marble.
 
 We'll still use `sample()` to run our simulation many times, but we'll
 use `dplyr` functions to compute the relative frequencies.
@@ -145,6 +146,7 @@ two_draw_results
 
 How can we add a variable to `two_draw_results` to see if `draw_1` and `draw_2`
 match?
+mutate command
 
 ```{r identify_matches}
 two_draw_results <- two_draw_results %>% 
@@ -172,11 +174,16 @@ Perform a simulation to compute this empirical probability.
 Write down your guess to the answer before you calculate it.
 
 ```{r simulate_rolls}
-
+two_rolls <- tibble(
+  roll_1 = replicate(n = 10000, expr = sample(1:6, size = 1)),
+  roll_2 = replicate(n = 10000, expr = sample(1:6, size = 1))
+)
 ```
 
 ```{r identify_events}
-
+two_rolls<- two_rolls %>% 
+  mutate(first_match = (roll_1*roll_1 == roll_2), second_match = abs(roll_1-roll_2) == 4 )
+two_rolls
 ```
 
 ```{r summarize_rolls}
