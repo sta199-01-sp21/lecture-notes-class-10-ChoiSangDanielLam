@@ -50,17 +50,25 @@ xtabs(~ Treatment + Improved, data = Arthritis) %>%
 
 - How many patients were enrolled in the clinical trial?
 
+84 patients were enrolled in the clinical trial
+
 - What is the probability a randomly selected patient received the placebo?
 
+  43/84 is the probability that the patient received a placebo
+  
 - What is the probability a randomly selected patient received the placebo
   and had a marked improvement?
+7/84 is the probability 
+
   
 - What is the probability a randomly selected patient received the placebo
   and the treatment?
+  Disjoint probability. Two things not possible at the same time. 0%
+  
   
 - What is the probability a randomly selected patient had some improvement or
   was on the treatment?
-
+48/84
 ## Using computer simulations to calculate probabilities
 
 #### Example
