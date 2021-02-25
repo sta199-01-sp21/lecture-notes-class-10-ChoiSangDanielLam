@@ -187,7 +187,8 @@ two_rolls
 ```
 
 ```{r summarize_rolls}
-
+two_rolls %>% 
+  summarize(match_1_prob = mean(first_match), match_2_prob = mean(second_match))
 ```
 
 ## Additional Resources-please look at before Weds.
